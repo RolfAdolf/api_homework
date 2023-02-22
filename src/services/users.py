@@ -8,7 +8,7 @@ from src.models.schemas.user.user_request import UserRequest
 
 class UsersService:
     def __init__(self, session: Session = Depends(get_session)):
-        self.session = Session
+        self.session = session
 
     def all(self) -> List[User]:
         users = (

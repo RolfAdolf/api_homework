@@ -8,9 +8,9 @@ class Product(Base):
     id = Column(Integer, primary_key=True)
     name = Column(String)
     created_at = Column(DateTime)
-    created_by = Column(Integer, ForeignKey('users'))
+    created_by = Column(Integer, ForeignKey('users.id'))
     modified_at = Column(DateTime)
-    modified_by = Column(Integer, ForeignKey('users'))
+    modified_by = Column(Integer, ForeignKey('users.id'))
 
     user_create = relationship('User', foreign_keys=[created_by], backref='created_products')
     user_modified = relationship('User', foreign_keys=[modified_by], backref='modified_products')

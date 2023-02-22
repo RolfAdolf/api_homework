@@ -8,7 +8,7 @@ from src.models.schemas.operation.operation_request import OperationRequest
 
 class OperationsService:
     def __init__(self, session: Session = Depends(get_session)):
-        self.session = Session
+        self.session = session
 
     def all(self) -> List[Operation]:
         operations = (

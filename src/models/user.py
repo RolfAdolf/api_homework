@@ -9,7 +9,7 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     username = Column(String)
     password_hashed = Column(String)
-    role = Column(str)
+    role = Column(String)
     created_at = Column(DateTime)
     created_by = Column(Integer)
     modified_at = Column(DateTime)

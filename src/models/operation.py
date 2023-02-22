@@ -1,6 +1,9 @@
 from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey
 from src.models.base import Base
 from sqlalchemy.orm import relationship
+from src.models.product import Product
+from src.models.user import User
+from src.models.tank import Tank
 
 
 class Operation(Base):
@@ -10,9 +13,9 @@ class Operation(Base):
     mass = Column(Float)
     date_start = Column(DateTime)
     date_end = Column(DateTime)
-    tank_id = Column(Integer, ForeignKey('tanks'))
-    product_id = Column(Integer, ForeignKey('products'))
+    tank_id = Column(Integer, ForeignKey('tanks.id'))
+    product_id = Column(Integer, ForeignKey('products.id'))
     created_at = Column(DateTime)
-    created_by = Column(int, ForeignKey('users'))
+    created_by = Column(Integer, ForeignKey('users.id'))
     modified_at = Column(DateTime)
-    modified_by = Column(Integer, ForeignKey('users'))
+    modified_by = Column(Integer, ForeignKey('users.id'))

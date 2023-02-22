@@ -1,7 +1,8 @@
 from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey
 from src.models.base import Base
 from sqlalchemy.orm import relationship
-
+from src.models.product import Product
+from src.models.user import User
 
 class Tank(Base):
 

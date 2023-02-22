@@ -8,7 +8,7 @@ from src.models.schemas.tank.tank_request import TankRequest
 
 class TanksService:
     def __init__(self, session: Session = Depends(get_session)):
-        self.session = Session
+        self.session = session
 
     def all(self) -> List[Tank]:
         tanks = (

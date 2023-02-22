@@ -8,7 +8,7 @@ from src.models.schemas.product.product_request import ProductRequest
 
 class ProductsService:
     def __init__(self, session: Session = Depends(get_session)):
-        self.session = Session
+        self.session = session
 
     def all(self) -> List[Product]:
         products = (
