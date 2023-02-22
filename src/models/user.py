@@ -1,0 +1,16 @@
+from sqlalchemy import Column, Integer, String, DateTime
+from src.models.base import Base
+from sqlalchemy.orm import relationship
+
+
+class User(Base):
+
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    username = Column(String)
+    password_hashed = Column(String)
+    role = Column(str)
+    created_at = Column(DateTime)
+    created_by = Column(Integer)
+    modified_at = Column(DateTime)
+    modified_by = Column(Integer)
