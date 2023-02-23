@@ -1,6 +1,8 @@
 from typing import Optional
 from pydantic import BaseModel
 from datetime import datetime
+from src.models.schemas.tank.tank_response import TankResponse
+from src.models.schemas.product.product_response import ProductResponse
 
 
 class OperationResponse(BaseModel):
@@ -17,3 +19,8 @@ class OperationResponse(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class OperationResponseAll(OperationResponse):
+    tank: Optional[TankResponse]
+    product: Optional[ProductResponse]

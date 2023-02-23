@@ -95,3 +95,14 @@ class OperationsService:
             )
         output.seek(0)
         return output
+
+    def get_for_tank(self, tank_id: int):
+        operations = (
+            self.session
+            .query(Operation)
+            .filter(
+                Operation.tank_id == tank_id
+            )
+            .all()
+        )
+        return operations

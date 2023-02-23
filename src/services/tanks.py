@@ -60,3 +60,13 @@ class TanksService:
         tank = self.get(tank_id)
         self.session.delete(tank)
         self.session.commit()
+
+    def change_capacity(
+            self,
+            tank_id: int,
+            capacity: float
+            ) -> Tank:
+        tank = self.get(tank_id)
+        setattr(tank, 'current_capacity', capacity)
+        self.session.commit()
+        return tank

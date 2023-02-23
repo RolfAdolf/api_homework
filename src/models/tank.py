@@ -4,6 +4,7 @@ from sqlalchemy.orm import relationship
 from src.models.product import Product
 from src.models.user import User
 
+
 class Tank(Base):
 
     __tablename__ = 'tanks'

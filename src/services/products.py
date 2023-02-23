@@ -7,6 +7,7 @@ from src.db.db import get_session
 from src.models.product import Product
 from src.models.schemas.product.product_request import ProductRequest
 
+
 class ProductsService:
     def __init__(self, session: Session = Depends(get_session)):
         self.session = session
