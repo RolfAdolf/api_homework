@@ -117,7 +117,7 @@ def download(
                              headers={'Content-Disposition': 'attachment; filename=report.csv'})
 
 
-@router.get('/all_for_tank', response_model=List[OperationResponseAll], name="Получить для одного резервуара")
+@router.get('/all_for_tank', response_model=List[OperationResponse], name="Получить для одного резервуара")
 def get_for_tank(
         tank_id: int,
         operations_service: OperationsService = Depends(),
