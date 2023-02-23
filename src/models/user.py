@@ -8,9 +8,9 @@ class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
     username = Column(String)
-    password_hashed = Column(String)
+    password_hash = Column(String)
     role = Column(String)
     created_at = Column(DateTime)
-    created_by = Column(Integer)
+    created_by = Column(Integer, nullable=True)
     modified_at = Column(DateTime)
-    modified_by = Column(Integer)
+    modified_by = Column(Integer, nullable=True)

@@ -8,7 +8,3 @@ class TankRequest(BaseModel):
     max_capacity: float
     current_capacity: float
     product_id: int
-    created_at: datetime
-    created_by: int
-    modified_at: datetime
-    modified_by: int

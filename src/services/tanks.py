@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import List
 from fastapi import Depends
 from sqlalchemy.orm import Session
@@ -32,16 +33,26 @@ class TanksService:
         )
         return tank
 
-    def add(self, tank_schema: TankRequest) -> Tank:
-        tank = Tank(**tank_schema.dict())
+    def add(self, tank_schema: TankRequest, created_user_id: int) -> Tank:
+        datetime_ = datetime.utcnow()
+        tank = Tank(
+            **tank_schema.dict(),
+            created_at=datetime_,
+            created_by=created_user_id,
+            modified_at=datetime_,
+            modified_by=created_user_id
+        )
         self.session.add(tank)
         self.session.commit()
         return tank
 
-    def update(self, tank_id: int, tank_schema: TankRequest) -> Tank:
+    def update(self, tank_id: int, tank_schema: TankRequest, modified_user_id: int) -> Tank:
         tank = self.get(tank_id)
         for field, value in tank_schema:
             setattr(tank, field, value)
+        datetime_ = datetime.utcnow()
+        setattr(tank, 'modified_at', datetime_)
+        setattr(tank, 'modified_by', modified_user_id)
         self.session.commit()
         return tank
 

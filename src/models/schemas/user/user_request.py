@@ -1,13 +1,9 @@
-from typing import Optional
+from typing import Optional, Literal
 from pydantic import BaseModel
 from datetime import datetime
 
 
 class UserRequest(BaseModel):
     username: str
-    password_hash: str
-    role: str
-    created_at: datetime
-    created_by: int
-    modified_at: datetime
-    modified_by: int
+    password_text: str
+    role: Literal['admin', 'viewer']
